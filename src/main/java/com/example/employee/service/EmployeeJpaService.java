@@ -40,7 +40,9 @@ public class EmployeeJpaService {
     }
 
     public void deleteEmployee(int employeeId) {
-        getEmployeeById(employeeId); // This ensures that an exception is thrown if not found
-        employeeJpaRepository.deleteById(employeeId);
-    }
+        try {
+            employeeJpaRepository.deleteById(employeeId);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
 }
