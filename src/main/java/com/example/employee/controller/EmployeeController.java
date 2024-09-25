@@ -39,8 +39,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/{employeeId}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteEmployee(@PathVariable int employeeId) {
         employeeService.deleteEmployee(employeeId);
-    }
+    }hi
 }
